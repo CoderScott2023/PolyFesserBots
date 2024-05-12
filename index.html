@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PolyFesser</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1 class="titleText">PolyFesser</h1>
+  <div id="homePage" class="buttons">
+    <div class="filter-group">
+      <label for="tribe1">Tribe 1:</label>
+      <select id="tribe1" name="tribe1">
+        <option value="">Select Tribe</option>
+        <option value="Bardur">Bardur</option>
+        <option value="Xin Xi">Xin Xi</option>
+        <option value="Cymanti">Cymanti</option>
+        <option value="Luxidoor">Luxidoor</option>
+        <option value="Polaris">Polaris</option>
+        <option value="Zebasi">Zebasi</option>
+        <option value="Kickoo">Kickoo</option>
+        <option value="Yadakk">Yadakk</option>
+        <option value="Oumaji">Oumaji</option>
+        <option value="Imperius">Imperius</option>
+        <option value="Quetzali">Quetzali</option>
+        <option value="Elyrion">Elyrion</option>
+        <option value="Ai Mo">Ai Mo</option>
+        <option value="Aquarion">Aquarion</option>
+        <option value="Hoodrick">Hoodrick</option>
+        <option value="Vengir">Vengir</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="tribe2">Tribe 2:</label>
+      <select id="tribe2" name="tribe2" disabled>
+        <option value="">Select Tribe</option>
+        <option value="Bardur">Bardur</option>
+        <option value="Xin Xi">Xin Xi</option>
+        <option value="Cymanti">Cymanti</option>
+        <option value="Luxidoor">Luxidoor</option>
+        <option value="Polaris">Polaris</option>
+        <option value="Zebasi">Zebasi</option>
+        <option value="Kickoo">Kickoo</option>
+        <option value="Yadakk">Yadakk</option>
+        <option value="Oumaji">Oumaji</option>
+        <option value="Imperius">Imperius</option>
+        <option value="Quetzali">Quetzali</option>
+        <option value="Elyrion">Elyrion</option>
+        <option value="Ai Mo">Ai Mo</option>
+        <option value="Aquarion">Aquarion</option>
+        <option value="Hoodrick">Hoodrick</option>
+        <option value="Vengir">Vengir</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="map-size">Map Size:</label>
+      <select id="map-size" name="map-size">
+        <option value="">Select Map Size</option>
+        <option value="Tiny">Tiny</option>
+        <option value="Small">Small</option>
+        <option value="Normal">Normal</option>
+        <option value="Large">Large</option>
+        <option value="Huge">Huge</option>
+        <option value="Massive">Massive</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="map-type">Map Type:</label>
+      <select id="map-type" name="map-type">
+        <option value="">Select Map Type</option>
+        <option value="Dryland">Dryland</option>
+        <option value="Lakes">Lakes</option>
+        <option value="Continents">Continents</option>
+        <option value="Pangea">Pangea</option>
+        <option value="Archipelago">Archipelago</option>
+        <option value="Water World">Water World</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="min-elo">Minimum Elo:</label>
+      <input type="number" id="min-elo" name="min-elo" min="0" placeholder="Enter minimum Elo">
+    </div>
+    <div class="filter-group">
+      <label for="max-elo">Maximum Elo:</label>
+      <input type="number" id="max-elo" name="max-elo" min="0" placeholder="Enter maximum Elo">
+    </div>
+    <button id="clickButton" ,type="button" , onclick="onClick()">Calculate Win Rate</button>
+    <div id="result"></div>
+  </div>
+  <div id="statPage" class="hidden">
+    <h2 id="winningText" style="text-align: center;"></h2>
+    <h1 id="winrateText" style="margin-top: 20px;"></h1>
+  </div>
+  <img id="Bardur" src="Bardur.png" alt="Bardur" class="hidden">
+  <img id="Xin Xi" src="Xin-Xi.png" alt="Xin Xi" class="hidden">
+  <img id="Cymanti" src="Cymanti.png" alt="Cymanti" class="hidden">
+  <img id="Luxidoor" src="Luxidoor.png" alt="Luxidoor" class="hidden">
+  <img id="Polaris" src="Polaris.png" alt="Polaris" class="hidden">
+  <img id="Zebasi" src="Zebasi.png" alt="Zebasi" class="hidden">
+  <img id="Kickoo" src="Kickoo.png" alt="Kickoo" class="hidden">
+  <img id="Yadakk" src="Yadakk.png" alt="Yadakk" class="hidden">
+  <img id="Oumaji" src="Oumaji.png" alt="Oumaji" class="hidden">
+  <img id="Imperius" src="Imperius.png" alt="Imperius" class="hidden">
+  <img id="Quetzali" src="Quetzali.png" alt="Quetzali" class="hidden">
+  <img id="Elyrion" src="Elyrion.png" alt="Elyrion" class="hidden">
+  <img id="Hoodrick" src="Hoodrick.png" alt="Hoodrick" class="hidden">
+  <img id="Aquarion" src="Aquarion.png" alt="Aquarion" class="hidden">
+  <img id="Vengir" src="Vengir.png" alt="Vengir" class="hidden">
+  <img id="Ai Mo" src="Ai Mo.png" alt="Ai Mo" class="hidden">
+  <img id="Swords" src="Swords.png" alt="Swords" class="hidden">
+  <p id="sourcesText" class="hidden"></p>
+  <div id="resetButton" class="hidden">
+    <button type="button" onclick="reset()">Reset</button>
+  </div>
+</body>
+<script src="script.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>
+  .sources {
+    text-align: center;
+  }
+
+  .swords {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    height: 20%;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .showing {
+    display: block;
+    margin-top: 70px;
+  }
+
+  .imgShowing1 {
+    display: block;
+    width: 30%;
+    height: 30%;
+    float: left;
+  }
+
+  .imgShowing2 {
+    width: 30%;
+    height: 30%;
+    display: block;
+    float: right;
+  }
+
+  .imgMiddleShowing {
+    display: block;
+    width: 40%;
+    height: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Body styles */
+  body {
+    margin: 0;
+    background-color: powderblue;
+    padding: 20px;
+    font-family: sans-serif;
+  }
+
+  .reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Title styles */
+  h1 {
+    text-align: center;
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px black;
+  }
+
+  .titleText {
+    font-size: 80px;
+  }
+
+  h1 span {
+    /* Style for "Poly" part of the title */
+    background-image: linear-gradient(to right, pink, yellow);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Form styles */
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  select,
+  input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 200px;
+  }
+
+  /* Button styles */
+  button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, pink, yellow);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-shadow: 2px 2px 0px black;
+  }
+
+  button:hover {
+    background-image: linear-gradient(to right, yellow, pink);
+  }
+
+  /* Result styles */
+  #result {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+</style>
+
+</html>
