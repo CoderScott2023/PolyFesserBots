@@ -5,12 +5,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PolyFesser</title>
+  <title>PolyFesser Bots</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1 class="titleText">PolyFesser</h1>
+  <h1 class="titleText">PolyFesser Bots</h1>
   <div id="homePage" class="buttons">
     <div class="filter-group">
       <label for="tribe1">Tribe 1:</label>
@@ -81,13 +81,15 @@
       </select>
     </div>
     <div class="filter-group">
-      <label for="min-elo">Minimum Elo:</label>
-      <input type="number" id="min-elo" name="min-elo" min="0" placeholder="Enter minimum Elo">
-    </div>
-    <div class="filter-group">
-      <label for="max-elo">Maximum Elo:</label>
-      <input type="number" id="max-elo" name="max-elo" min="0" placeholder="Enter maximum Elo">
-    </div>
+      <label for="difficulty">Difficulty:</label>
+      <select id="map-type" name="map-type">
+        <option value="">Select Difficulty</option>
+        <option value="Easy">Easy</option>
+        <option value="Normal">Normal</option>
+        <option value="Hard">Hard</option>
+        <option value="Crazy">Crazy</option>
+      </select>
+    </div>    
     <button id="clickButton" ,type="button" , onclick="onClick()">Calculate Win Rate</button>
     <div id="result"></div>
   </div>
