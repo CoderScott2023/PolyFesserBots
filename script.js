@@ -65,8 +65,7 @@ function onClick() {
       var filters = {};
       var mapSize = document.getElementById("map-size").value;
       var mapType = document.getElementById("map-type").value;
-      var minElo = document.getElementById("min-elo").value;
-      var maxElo = document.getElementById("max-elo").value;
+      var diff = document.getElementById("difficulty").value;
 
       if (mapSize !== "") {
         filters["map_size"] = mapSize;
@@ -74,11 +73,8 @@ function onClick() {
       if (mapType !== "") {
         filters["map_type"] = mapType;
       }
-      if (minElo !== "") {
-        filters["min_elo"] = parseInt(minElo); // Convert to integer if needed
-      }
-      if (maxElo !== "") {
-        filters["max_elo"] = parseInt(maxElo); // Convert to integer if needed
+      if (diff !== "") {
+        filters["difficulty"] = diff; // Convert to integer if needed
       }
       console.log(filters);
 
