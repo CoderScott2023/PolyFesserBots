@@ -9,22 +9,7 @@ function calculateWinRate(data, tribe1, tribe2 = null, filters) {
         (entry.winning_tribe === tribe2 && entry.opponent_tribe === tribe1)) :
       (entry.winning_tribe === tribe1 || entry.opponent_tribe === tribe1);
 
-    // Filter based on user-defined criteria
-    if (Object.keys(filters).length !== 0) {
-      const filterMatch = Object.entries(filters).every(([key, value]) => {
-        // If the filter key is 'minElo' or 'maxElo', check if the Elo falls within the specified range
-        if (key === 'min_elo') {
-          return entry['elo'] !== undefined && entry['elo'] >= value;
-        } else if (key === 'max_elo') {
-          return entry['elo'] !== undefined && entry['elo'] <= value;
-        } else {
-          return entry[key] === value;
-        }
-      });
-      return isMatchup && filterMatch;
-    } else {
-      return isMatchup;
-    }
+    return isMatchup;
   });
 
   // Count wins and losses for tribe1
@@ -109,7 +94,7 @@ function onClick() {
         document.getElementById(tribe1).classList.add("imgMiddleShowing");
         document.getElementById("winningText").innerHTML = `Win rate for ${tribe1}:`;
       }
-      
+
       document.getElementById("sourcesText").classList.remove("hidden");
       document.getElementById("resetButton").classList.remove("hidden");
       document.getElementById("resetButton").classList.add("reset");
