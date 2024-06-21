@@ -3,16 +3,26 @@ var totalGames = 0;
 
 function calculateWinRate(data, tribe1, tribe2 = null, filters) {
   const filteredData = data.filter(entry => {
-    // Matchup filter (same as before)
-    const isMatchup = tribe2 ?
-      ((entry.winning_tribe === tribe1 && entry.opponent_tribe === tribe2) ||
-        (entry.winning_tribe === tribe2 && entry.opponent_tribe === tribe1)) :
-      (entry.winning_tribe === tribe1 || entry.opponent_tribe === tribe1);
+    // Filter based on user-defined criteria
+    if (Object.keys(filters).length !== 0) {
+      const filterMatch = Object.entries(filters).every(([key, value]) => {
+        // If the filter key is 'minElo' or 'maxElo', check if the Elo falls within the specified range
+        if (key === 'min_elo') {
+          return entry['elo'] !== undefined && entry['elo'] >= value;
+        } else if (key === 'max_elo') {
+          return entry['elo'] !== undefined && entry['elo'] <= value;
+        } else {
+          return entry[key] === value;
+        }
+      });
 
-    return isMatchup;
+      return filterMatch;
+    } else {
+      return true; // No filters, include all entries
+    }
   });
-
   // Count wins and losses for tribe1
+
   const tribe1Wins = filteredData.filter(entry => entry.winning_tribe === tribe1).length;
   const totalTribeGames = tribe2 ? filteredData.length : filteredData.filter(entry => entry.winning_tribe === tribe1 || entry.opponent_tribe === tribe1).length;
 
