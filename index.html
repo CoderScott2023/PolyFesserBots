@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,9 +88,10 @@
         <option value="Hard">Hard</option>
         <option value="Crazy">Crazy</option>
       </select>
-    </div>    
+    </div>
     <button id="clickButton" ,type="button" , onclick="onClick()">Calculate Win Rate</button>
     <div id="result"></div>
+    <a href="https://forms.gle/7c6EA6cicjS77CoZA" id="submitLink">Submit Your Games To PolyFesser Bots!</a>
   </div>
   <div id="statPage" class="hidden">
     <h2 id="winningText" style="text-align: center;"></h2>
@@ -122,6 +122,18 @@
 <script src="script.js"></script>
 <link rel="stylesheet" href="style.css">
 <style>
+  @media (max-width: 768px) {
+    #submitLink {
+      bottom: 10px;
+      /* Adjust this value to avoid overlap on smaller screens */
+    }
+  }
+
+  #submitLink {
+    bottom: 10px;
+    position: fixed;
+  }
+
   .sources {
     text-align: center;
   }
