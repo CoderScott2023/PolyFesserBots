@@ -152,3 +152,27 @@ firstTribeSelect.addEventListener('change', () => {
 secondTribeSelect.addEventListener('change', () => {
   firstTribeSelect.disabled = secondTribeSelect.value === ''; // Disable firstTribe select element if secondTribe is not selected
 });
+window.onload = function() {
+  var submitLink = document.getElementById('submitLink');
+  if (window.innerWidth <= 768) {
+    submitLink.style.position = 'relative';
+    submitLink.style.marginTop = '20px'; // Adjust as needed
+    submitLink.style.left = 'auto';
+    submitLink.style.transform = 'none';
+  }
+};
+window.addEventListener('resize', function() {
+  var submitLink = document.getElementById('submitLink');
+  if (window.innerWidth <= 768) {
+    submitLink.style.position = 'relative';
+    submitLink.style.marginTop = '20px'; // Adjust as needed
+    submitLink.style.left = 'auto';
+    submitLink.style.transform = 'none';
+  }
+  else {
+    submitLink.style.position = 'fixed';
+    submitLink.style.left = '50%';
+    submitLink.style.transform = 'translateX(-50%)';
+    submitLink.style.marginTop = '0';
+  }
+});
